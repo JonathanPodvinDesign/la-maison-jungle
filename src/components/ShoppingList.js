@@ -1,17 +1,28 @@
 import React from "react";
 import { plantList } from "../datas/plantList";
-import CareScale from "./CareScale";
+import SunScale from "./SunScale";
+import WaterScale from "./WaterScale";
 import "../styles/ShoppingList.css";
+
+const categories = plantList.reduce(
+  (acc, cat) => (acc.includes(cat.category) ? acc : acc.concat(cat.category)),
+  []
+);
 
 const ShoppingList = () => {
   return (
     <div>
       <ul>
+        {categories.map((cat) => (
+          <li>{cat}</li>
+        ))}
+      </ul>
+      <ul className="lmj-plant-list">
         {plantList.map((plant) => (
-          <li className="lmj-plant-list" key={plant.id}>
+          <li key={plant.id}>
             {plant.name}
-            <CareScale scaleValue={plant.light} />
-            <CareScale scaleValue={plant.water} />
+            <SunScale SunValue={plant.light} />
+            <WaterScale WaterValue={plant.water} />
           </li>
         ))}
       </ul>
