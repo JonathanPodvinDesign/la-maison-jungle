@@ -1,9 +1,10 @@
 import React from "react";
 import { plantList } from "../datas/plantList";
+import "../styles/Cart.css";
 
 const Cart = () => {
   return (
-    <div>
+    <div className="lmj-cart">
       <h2>Panier</h2>
       <ul className="lmj-plant-list">
         <li className="lmj-plant-item">Monstera</li>
